@@ -10,10 +10,8 @@ distanciaPuntos v w = sqrt(((fst w) (Float, Float) -> Float (fst v))^2 + ((snd w
 sumaTerna:: (Integer, Integer, Integer) -> Integer 
 sumaterna (a, b, c) = a+b+c
 
-
 crearPar:: a b (a, b) 
 crearPar a b = (a,b)
-
 
 invertir:: (a, b) -> (b, a)
 invertir (a, b) = (b, a)

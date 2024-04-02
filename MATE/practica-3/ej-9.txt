@@ -1,0 +1,39 @@
+problema f1(n: R): R {
+    requiere { True }
+    asegura { res = 1 sii n = 0 }
+    asegura { res = 0 sii n /= 0 }
+}
+
+problema f2(n: R): R {
+    requiere { n = 1 o n = -1 }
+    asegura { res = 15 sii n = 1 }
+    asegura { res = -15 sii n = -1 }
+}
+
+o bien
+
+problema f2(n: R): R {
+    requiere { n = 1 o n = -1 }
+    asegura { res = 15 * n }
+}
+
+problema f3(n: R): R {
+    requiere { True }
+    asegura { res = 7 sii n <= 9 }
+    asegura { res = 3 sii n <= 3 }
+}
+
+problema f4(x: R, y: R): R {
+    requiere { True }
+    asegura { res = (x + y) / 2 }
+}
+
+problema f5((x, y): RxR): R {
+    requiere { True }
+    asegura { res = (x + y) / 2 }
+}
+
+problema f6(a: R, b: N): Bool {
+    requiere { True }
+    asegura { res = floor(a) = b }
+}

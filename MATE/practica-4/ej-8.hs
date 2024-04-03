@@ -1,5 +1,5 @@
 iesimoDigito :: (Integral a) => a -> a -> a
--- iesimoDigito n i = (n `div` (10 ^ (cantDigitos n - 1))) `mod` 10
+iesimoDigito n i = (n `div` (10 ^ (cantDigitos n - i))) `mod` 10
 
 cantDigitos :: (Integral n) => n -> n
 cantDigitos n

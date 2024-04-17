@@ -8,9 +8,9 @@ productoria (x:xs) = x * productoria xs
 
 maximo :: [Integer] -> Integer
 maximo [] = 1
-maximo (x:l) | x > y = x
-             | otherwise = y
-             where y = maximo l
+maximo (x:xs) = maximoAux x (maximo xs)
+    where maximoAux a b | a >= b = a
+                        | otherwise = b
 
 sumarN :: Integer -> [Integer] -> [Integer]
 sumarN y [] = []
@@ -27,11 +27,16 @@ pares [] = []
 pares (x:xs) | mod x 2 /= 0 = pares xs
              | otherwise = [x] ++ pares xs
 
--- multiplosDeN :: Integer -> [Integer] -> [Integer]
--- multiplosDeN _ [] = []
--- multiplosDeN y (x:xs) | mod x y == 0 = [x] ++ multiplosDeN y xs
---                       | otherwise = multiplosDeN y xs
+multiplosDeN :: Integer -> [Integer] -> [Integer]
+multiplosDeN _ [] = []
+multiplosDeN y (x:xs) | mod x y == 0 = [x] ++ multiplosDeN y xs
+                      | otherwise = multiplosDeN y xs
 
 ordenar :: [Integer] -> [Integer]
 ordenar [] = []
-ordenar (x:xs) = [maximo xs] ++ ordenar xs
+ordenar xs = [maximo xs] ++ ordenar (quitarTodos (maximo xs) xs)
+
+quitarTodos :: (Eq t) => t -> [t] -> [t]
+quitarTodos _ [] = []
+quitarTodos y (x:xs) | y == x = quitarTodos y xs
+                    | y /= x = [x] ++ quitarTodos y xs

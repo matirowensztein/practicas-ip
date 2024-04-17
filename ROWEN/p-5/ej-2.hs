@@ -38,9 +38,9 @@ eliminarRepetidos (x:t) | pertenece x t = [x] ++ eliminarRepetidos (quitarTodos 
 
 mismosElementos :: (Eq t) => [t] -> [t] -> Bool
 mismosElementos [] [] = True
-mismosElementos [] _ = True
-mismosElementos _ [] = True
-mismosElementos (x:t) (y:s) | pertenece x s && pertenece y t || x == y = mismosElementos t s
+mismosElementos [] s = s == []
+mismosElementos t [] = t == []
+mismosElementos (x:t) (y:s) | (pertenece x s && pertenece y t) || x == y = mismosElementos (quitarTodos x s) (quitarTodos y t)
                             | otherwise = False
 
 reverso :: [t] -> [t]

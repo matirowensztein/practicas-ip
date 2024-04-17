@@ -9,13 +9,9 @@ m = 1
 
 f :: Int -> Int -> Int
 f 0 m = 0
-f n m = sumaInterna n m + f (n-2) m
-    where sumaInterna n m | m == 0 = 0
-                          | otherwise = n^m + sumaInterna n (m-2)
+f i m = sumaMPotencias i m + f (i-1) m
 
+sumaMPotencias :: Int -> Int -> Int
+sumaMPotencias n 0 = 0
+sumaMPotencias n j = n^j + sumaMPotencias n (j-1)
 
--- No funciona de esta manera ya que en la grilla se pasara por cirtos lugares multiples veces
-f' :: Int -> Int -> Int
-f' 0 m = 0
-f' n 0 = 0
-f' n m = n^m + f' (n-2) m + f' n (m-1)

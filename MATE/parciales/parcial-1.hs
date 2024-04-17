@@ -44,20 +44,22 @@ eliminarPersona (x:xs) p
 amigosDe :: Persona -> [Relacion] -> [Persona]
 amigosDe p rs = ((rs `filtrarRelacionesSin` p) `agregarPersonasUnicasA` []) `eliminarPersona` p
 
-cantidadDeAmigos :: [Persona] -> Persona
+cantidadDeAmigos :: [Persona] -> Int
 cantidadDeAmigos [] = 0
 cantidadDeAmigos (x:xs) = 1 + cantidadDeAmigos xs
 
-masAmigosQue :: [Relacion] -> Persona -> Persona
-masAmigosQue rs p1 p2
-    | cantidadDeAmigos (amigosDe p1) > cantidadDeAmigos (amigosDe p2) = p1
+masAmigos :: [Relacion] -> Persona -> Persona -> Persona
+masAmigos rs p1 p2
+    | cantidadDeAmigos (amigosDe p1 rs) > cantidadDeAmigos (amigosDe p2 rs) = p1
     | otherwise = p2
 
-personaConMasAmigosRecursion :: [Persona] -> Persona
-personaConMasAmigosRecursion (x:xs)
-    | x `masAmigosQue` (head xs) = x
-    | otherwise = xs
+personaConMasAmigosRecursion :: [Relacion] -> [Persona] -> Persona
+personaConMasAmigosRecursion rs [] = ""
+personaConMasAmigosRecursion rs [x] = x
+personaConMasAmigosRecursion rs (x:xs)
+    | sonIguales (masAmigos rs x (head xs)) x = masAmigos rs x (personaConMasAmigosRecursion rs xs)
+    | otherwise = personaConMasAmigosRecursion rs xs
 
 personaConMasAmigos :: [Relacion] -> Persona
-personaConMasAmigos r = personaConMasAmigosRecursion (r `agregarPersonasUnicasA` [])
+personaConMasAmigos r = personaConMasAmigosRecursion r (r `agregarPersonasUnicasA` [])
 

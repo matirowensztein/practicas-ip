@@ -1,0 +1,57 @@
+1.
+
+x es el unico factor
+
+¿x es positivo?
+¿x es 0? UNICO
+¿x es negativo?
+¿x entero?
+¿x fraccional?
+
+Caso 1 - x fraccional positivo:
+- ¿x es positivo? Si
+- ¿x es 0? No
+- ¿x es negativo? No
+- ¿x entero? No
+- ¿x fraccional? Si
+- Resultado esperado: Ok, es el anterior entero
+Caso 2 - x fraccional negativo:
+- ¿x es positivo? No
+- ¿x es 0? No
+- ¿x es negativo? Si
+- ¿x entero? No
+- ¿x fraccional? Si
+- Resultado esperado: Ok, es el siguiente entero
+Caso 3 - x entero negativo:
+- ¿x es positivo? No
+- ¿x es 0? No
+- ¿x es negativo? Si
+- ¿x entero? Si
+- ¿x fraccional? No
+- Resultado esperado: Ok, res = x
+Caso 4 - x = 0:
+- ¿x es positivo? No
+- ¿x es 0? Si
+- ¿x es negativo? No
+- ¿x entero? Si
+- ¿x fraccional? No
+- Resultado esperado: Ok, res = 0
+
+2.
+
+Caso 1
+factores: x = 4.4
+resultado esperado: res = 4
+
+Caso 2
+factores: x = -4.4
+resultado esperado: res = -4
+
+Caso 3
+factores: x = -4
+resultado esperado: res = -5
+
+Caso 4
+factores: x = 0
+resultado esperado: res = 0
+

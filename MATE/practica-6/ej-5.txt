@@ -1,0 +1,22 @@
+Factores:
+- n: Z
+- s: seq<Z>
+
+s vacio? UNICO
+existe m en s negativo?
+
+Caso 1 - s vacio
+s vacio? Si
+existe m en s negativo? -
+Resultado Esperado: res = []
+
+Caso 2 - Existe m en s negativo
+s vacio? No
+existe m en s negativo? Si
+Resultado Esperado: res = s con cada elemento sumado n
+
+Caso 1 - s vacio
+n = 1, s = [] => res = []
+
+Caso 2 - n en s y existe m en s negativo
+n = 1, s = [] => res = []

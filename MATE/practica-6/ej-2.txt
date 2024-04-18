@@ -1,0 +1,65 @@
+1. Los factores son los tres numeros enteros de entrada. Los llamo a, b y c;
+
+2. No se me ocurren, tal vez la suma de los tres lados
+
+3.
+- Si la suma de dos de sus lados es mayor a la longitud del tercer lado
+- Si tiene tres lados iguales
+- Si tiene exactamente dos lados iguales
+- Si todos sus lados son diferentes
+
+4.
+-  ¿La suma de dos de sus lados es mayor a la longitud del tercer lado?
+  - Si a+b>c || a+c>b || b+c>a
+  - No !(a+b>c || a+c>b || b+c>a)
+- ¿Tiene tres lados iguales?
+  - Si a=b=c
+  - No a!=b || a!=c || b!=c
+- ¿Tiene exactamente dos lados iguales?
+  - Si a=b && a!=c || b=c && a!=c || a=c && a!=b
+  - No !(a=b && a!=c || b=c && a!=c || a=c && a!=b)
+- ¿Todos sus lados son diferentes?
+  - Si a!=b!=c
+  - No a==b || b==c || a==c
+
+5.
+-  ¿La suma de dos de sus lados es mayor a la longitud del tercer lado?
+  - Si a+b>c || a+c>b || b+c>a [REESTRICCION]
+  - No !(a+b>c || a+c>b || b+c>a) [ERROR]
+- ¿Tiene tres lados iguales?
+  - Si a=b=c
+  - No a!=b || a!=c || b!=c
+- ¿Tiene exactamente dos lados iguales?
+  - Si a=b && a!=c || b=c && a!=c || a=c && a!=b
+  - No !(a=b && a!=c || b=c && a!=c || a=c && a!=b)
+- ¿Todos sus lados son diferentes?
+  - Si a!=b!=c
+  - No a==b || b==c || a==c
+
+6.
+- Caso 1: triangulo invalido
+  - ¿La suma de dos de sus lados es mayor a la longitud del tercer lado? Si
+  - ¿Tiene tres lados iguales? -
+  - ¿Tiene exactamente dos lados iguales? -
+  - ¿Todos sus lados son diferentes? -
+  - Resultado esperado: ERROR - no está especificado que sucede en este caso
+  - Como devuelve un error, no importa cuales lados son iguales
+- Caso 2: todos iguales
+  - ¿La suma de dos de sus lados es mayor a la longitud del tercer lado? No
+  - ¿Tiene tres lados iguales? Si
+  - ¿Tiene exactamente dos lados iguales? No
+  - ¿Todos sus lados son diferentes? No
+  - Resultado esperado: Ok, res = "Equilatero"
+- Caso 3: dos iguales
+  - ¿La suma de dos de sus lados es mayor a la longitud del tercer lado? No
+  - ¿Tiene tres lados iguales? No
+  - ¿Tiene exactamente dos lados iguales? Si
+  - ¿Todos sus lados son diferentes? No
+  - Resultado esperado: Ok, res = "Isosceles"
+- Caso 4: todos iguales
+  - ¿La suma de dos de sus lados es mayor a la longitud del tercer lado? No
+  - ¿Tiene tres lados iguales? No
+  - ¿Tiene exactamente dos lados iguales? No
+  - ¿Todos sus lados son diferentes? Si
+  - Resultado esperado: Ok, res = "Escaleno"
+  

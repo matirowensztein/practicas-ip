@@ -1,0 +1,11 @@
+1. ¿Cual es el objetivo de realizar testing de un software?
+Ayuda a mostrar que el software cubre las expectativas para las cuales fue construido y ayuda a garantizar su calidad.
+
+2. ¿Realizar testing sobre un software nos demuestra que el software funciona correctamente? Justificar.
+No, ya que es imposible (o al menos demasiado lento y costoso para la mayoría de los casos) testear todos los inputs posibles, y a menos que se pruebe con todas las combinaciones de imputs, simplemente hacer testing no demuestra que el software siempre funciona bien. Para demostrarlo hay que usar otros métodos de probar la correctitud de un programa.
+
+3. ¿En que consiste el testing de caja negra?. ¿Cual es su principal caracteristica?
+El testing de caja negra se basa en crear tests sin mirar a la implementación del programa, sino que lo único que se mira es la especificación.
+
+4. ¿Se puede realizar testing de caja negra sin contar con una especificacion del programa a testear? Justificar.
+Se puede sin una especificación formal, ya que no es estrictamente necesario (aunque puede ser útil) saber cual es exactamente la expecificación formal para crear algunos tests, con una especificación informal es suficiente para crearlos. Si no se tiene ningún tipo de especificación si es imposible hacer el testing, ya que no se sabe qué testear.

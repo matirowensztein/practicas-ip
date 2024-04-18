@@ -1,0 +1,36 @@
+1.
+
+Factores: e: T, s: seq<T>
+
+¿e ∈ s?
+¿e ∉ s?
+¿s == []? UNICO
+¿s != []?
+
+Caso 1 - s vacio
+¿e ∈ s? -
+¿e ∉ s? -
+¿s == []? Si
+¿s != []? No
+Esperado: res = []
+
+Caso 2 - e en s
+¿e ∈ s? Si
+¿e ∉ s? No
+¿s == []? -
+¿s != []? -
+Esperado: res ⊆ s && e ∉ res
+
+Caso 3 - e en s
+¿e ∈ s? No
+¿e ∉ s? Si
+¿s == []? -
+¿s != []? -
+Esperado: res = s
+
+2.
+
+Caso 1: s = [], e = 1, res = []
+Caso 2: s = [1,2], e = 1, res = [2]
+Caso 3: s = [1,2], e = 3, res = [1,2]
+

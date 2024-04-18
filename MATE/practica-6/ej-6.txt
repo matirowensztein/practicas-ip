@@ -1,0 +1,124 @@
+Tests de multiplosDeN
+Factores:
+- n: Z
+- xs: seq<Z>
+
+xs vacio? UNICO
+n multiplo de algun elemento de xs?
+n negativo?
+n = 0? UNICO
+
+Caso 1 - xs vacio
+xs vacio? Si
+n multiplo de algun elemento de xs? -
+n negativo? -
+n = 0? -
+Resultado esperado: res = []
+
+Caso 2 - n = 0
+xs vacio? -
+n multiplo de algun elemento de xs? -
+n negativo? -
+n = 0? Si
+Resultado esperado: res = []
+
+Caso 3 - n = n multiplo de algun elemento de xs
+xs vacio? No
+n multiplo de algun elemento de xs? Si
+n negativo? -
+n = 0? No
+Resultado esperado: res es los multiplos de n en xs
+
+Caso 4 - n negativo
+xs vacio? No
+n multiplo de algun elemento de xs? -
+n negativo? Si
+n = 0? No
+Resultado esperado: igual al resultado con n' = -n
+
+Caso 1
+n = 1 xs = [] -> res = []
+
+Caso 2
+n = 0 xs = [1] -> res = []
+
+Caso 3
+n = 2 xs = [4, 7, 8] -> res = [4, 8]
+
+Caso 3
+n = -2 xs = [4, 7, 8] -> res = [4, 8]
+
+Tests de ordenar
+Factores
+- xs: seq<Z>
+
+numeros en orden?
+todos positivos?
+
+Caso 1 - numeros positivos en orden
+numeros en orden? Si
+todos positivos? Si
+Resulatado esperado: res = xs
+
+Caso 2 - numeros positivos y negativos
+numeros en orden? No
+todos positivos? No
+Resulatado esperado: res = xs ordenado
+
+Tests de aplanarConNBlancos
+Factores
+- str: seq<Char>
+- n: Z
+
+n = 0? UNICO
+str = []? UNICO
+' ' no esta en str?
+
+Caso 1 n = 0
+n = 0? Si
+str = []? -
+' ' no esta en str? -
+Resultado esperado: res = str
+
+Caso 2 n = 0
+n = 0? -
+str = []? Si
+' ' no esta en str? -
+Resultado esperado: res = str
+
+Caso 3 n = 0
+n = 0? No
+str = []? No
+' ' no esta en str? Si
+Resultado esperado: res = str
+
+Caso 4 condiciones normales
+n = 0? No
+str = []? No
+' ' no esta en str? No
+Resultado esperado: res = str con los espacios correspondientes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

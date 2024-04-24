@@ -9,6 +9,7 @@ tests = test [
         "tupla repetida" ~: (relacionesValidas [("ana", "pedro"), ("ana", "pedro")]) ~?= False,
         "tupla repetida invertida" ~: (relacionesValidas [("ana", "pedro"), ("pedro", "ana")]) ~?= False,
         "todas diferentes" ~: (relacionesValidas [("ana", "pedro"), ("ana", "carlos")]) ~?= True,
+        "" ~: (relacionesValidas [("ana", "pedro"), ("ana", "carlos"), ("pedro", "ana")]) ~?= True,
 
         "" ~: (personas []) ~?= [],
         "" ~: (personas [("ana", "pedro")]) ~?= ["ana", "pedro"],

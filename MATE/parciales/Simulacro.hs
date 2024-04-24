@@ -4,7 +4,7 @@ type Relacion = (String, String)
 
 relacionesIncluyen :: [Relacion] -> Relacion -> Bool
 relacionesIncluyen [] _ = False
-relacionesIncluyen (x:xs) r = (fst x == fst r && snd x == snd r) || (fst x == snd r && snd x == fst r)
+relacionesIncluyen (x:xs) r = (fst x == fst r && snd x == snd r) || (fst x == snd r && snd x == fst r) || relacionesIncluyen xs r
 
 relacionesValidas :: [Relacion] -> Bool
 relacionesValidas [] = True

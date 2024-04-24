@@ -14,6 +14,12 @@ factorialTest = test [
        "Caso recursivo 2" ~: (fib 5) ~?= 120
        ]
 
-tests = TestList [TestLabel "fib" fibTest, TestLabel "factorial" factorialTest]
+qsortTest = test [
+       "Caso base" ~: (factorial 0) ~?= 1,
+       "Caso recursivo 1" ~: (factorial 3) ~?= 6,
+       "Caso recursivo 2" ~: (fib 5) ~?= 120
+       ]
+
+tests = TestList [TestLabel "fib" fibTest, TestLabel "factorial" factorialTest, TestLabel "qsort" qsortTest]
 
 ejecutar = runTestTT tests

@@ -12,8 +12,8 @@ tests = test [
 
         "" ~: (personas []) ~?= [],
         "" ~: (personas [("ana", "pedro")]) ~?= ["ana", "pedro"],
-        "" ~: (personas [("ana", "pedro"), ("juan", "carlos")]) ~?= ["ana", "pedro", "juan", "carlos"],
-        "" ~: (personas [("ana", "pedro"), ("juan", "ana")]) ~?= ["ana", "pedro", "juan"],
+        "" ~: (sonIguales (personas [("ana", "pedro"), ("juan", "carlos")]) ["ana", "pedro", "juan", "carlos"]) ~?= True,
+        "" ~: (sonIguales (personas [("ana", "pedro"), ("juan", "ana")]) ["ana", "pedro", "juan"]) ~?= True,
 
         "" ~: (amigosDe "ana" []) ~?= [],
         "" ~: (amigosDe "ana" [("juan", "pedro"), ("juan", "carlos")]) ~?= [],
@@ -36,19 +36,19 @@ tests = test [
 
 -- -- FUNCIONES PARA TESTING, NO BORRAR
 -- -- expectAny permite saber si el elemenot que devuelve la función es alguno de los esperados
--- expectAny actual expected = elem actual expected ~? ("expected any of: " ++ show expected ++ "\n but got: " ++ show actual)
+expectAny actual expected = elem actual expected ~? ("expected any of: " ++ show expected ++ "\n but got: " ++ show actual)
 
 
 -- -- sonIguales permite ver que dos listas sean iguales si no importa el orden
--- quitar :: (Eq t) => t -> [t] -> [t]
--- -- requiere x pertenece a y
--- quitar x (y:ys)
--- | x == y = ys
--- | otherwise = y : quitar x ys
+quitar :: (Eq t) => t -> [t] -> [t]
+-- requiere x pertenece a y
+quitar x (y:ys)
+    | x == y = ys
+    | otherwise = y : quitar x ys
 
--- incluido :: (Eq t) => [t] -> [t] -> Bool
--- incluido [] l = True
--- incluido (x:c) l = elem x l && incluido c (quitar x l)
+incluido :: (Eq t) => [t] -> [t] -> Bool
+incluido [] l = True
+incluido (x:c) l = elem x l && incluido c (quitar x l)
 
--- sonIguales :: (Eq t) => [t] -> [t] -> Bool
--- sonIguales xs ys = incluido xs ys && incluido ys xs
+sonIguales :: (Eq t) => [t] -> [t] -> Bool
+sonIguales xs ys = incluido xs ys && incluido ys xs

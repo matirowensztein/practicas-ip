@@ -1,4 +1,4 @@
--- https://gitlab.com/faustomartinez/uba-algoritmos-y-estructuras-de-datos-i/-/blob/main/simulacro-1er-parcial/enunciado.pdf
+module Parcial1 where
 
 -- (1)
 

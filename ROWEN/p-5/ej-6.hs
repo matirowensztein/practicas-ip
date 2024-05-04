@@ -19,7 +19,7 @@ agregar x c | perteneceNum x c = c
              
 agregarATodos :: Integer -> Set (Set Integer) -> Set (Set Integer)
 agregarATodos _ [] = []
-agregarATodos n (x:xs) | perteneceList (agregar n x) xs = agregarATodos n xs
+agregarATodos n (x:xs) | perteneceList (agregar n x) (x:xs) = agregarATodos n xs
                        | otherwise = [agregar n x] ++ agregarATodos n xs
 
 quitarTodos _ [] = []

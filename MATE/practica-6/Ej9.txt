@@ -1,0 +1,14 @@
+1. g pasa de 0 a 3
+2. el estado no cambia, no hay un parametro out ni inout. El resultado no se está evaluando ni almacenando, no está sucediendo nada, solo se hacen calculos porque si.
+3.
+
+problema rt(in x: Z, in g: Z): Z {
+    requiere: { True }
+    asegura: { res = x + g + 1 }
+}
+
+problema ro(in x: Z, inout g: Z) {
+    requiere: { True }
+    modifica: g
+    asegura: { g = x + g@pre + 1 }
+}

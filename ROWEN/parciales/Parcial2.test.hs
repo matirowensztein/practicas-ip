@@ -4,20 +4,18 @@ import Parcial2
 main = runTestTT tests
 
 tests = test [
-        "una relacion valida" ~: (relacionesValidas [("ana", "pedro")]) ~?= True,
-        "componentes repetidas" ~: (relacionesValidas [("ana", "ana")]) ~?= False,
-        "tupla repetida" ~: (relacionesValidas [("ana", "pedro"), ("ana", "pedro")]) ~?= False,
-        "tupla repetida invertida" ~: (relacionesValidas [("ana", "pedro"), ("pedro", "ana")]) ~?= False,
-        "todas diferentes" ~: (relacionesValidas [("ana", "pedro"), ("ana", "carlos")]) ~?= True,
-        "" ~: (relacionesValidas [("ana", "pedro"), ("ana", "carlos"), ("pedro", "ana")]) ~?= False,
+        "" ~: (votosEnBlanco  [("Juan","Susana"), ("Maria","Pablo")] [20,10] 100) ~?= 70,
 
-        "" ~: (personas []) ~?= [],
-        "" ~: (personas [("ana", "pedro")]) ~?= ["ana", "pedro"],
+        "" ~: (formulasValidas  [("Juan","Susana")] ) ~?= True,
+        "" ~: (formulasValidas  [("Juan","Juan")] ) ~?= False,
+        "" ~: (formulasValidas  [("Juan","Susana"), ("Maria","Pablo")] ) ~?= True,
+        "" ~: (formulasValidas  [("Juan","Susana"), ("Juan","Pablo")] ) ~?= False,
+        "" ~: (formulasValidas  [("Juan","Susana"), ("Maria","Juan")] ) ~?= False,
+        "" ~: (formulasValidas  [("Juan","Susana"), ("Susana","Pablo")] ) ~?= False,
+        "" ~: (formulasValidas  [("Juan","Susana"), ("Maria","Susana")] ) ~?= False,
+        "" ~: (formulasValidas  [("Juan","Susana"), ("Juan","Susana")] ) ~?= False,
 
-        "" ~: (amigosDe "ana" []) ~?= [],
-        "" ~: (amigosDe "ana" [("juan", "pedro"), ("juan", "carlos")]) ~?= [],
-        "" ~: (amigosDe "ana" [("ana", "pedro"), ("juan", "ana")]) ~?= ["pedro", "juan"],
+        "" ~: (porcentajeDeVotos "Juan" [("Juan","Susana"), ("Maria","Pablo"), ("Julian","Hector")] [70,20,10]) ~?= 70.0,
 
-        "" ~: (personaConMasAmigos [("ana", "pedro"), ("juan", "ana")]) ~?= "ana",
-        "" ~: (personaConMasAmigos [("ana", "pedro"), ("juan", "ana"), ("pedro", "carlos")]) ~?= "pedro"
+        "" ~: (proximoPresidente [("Juan","Susana"), ("Maria","Pablo"), ("Julian","Hector")] [70,20,10]) ~?= "Juan"
         ]

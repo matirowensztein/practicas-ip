@@ -61,3 +61,6 @@ calcularProxPresi (l:ls) (v:vs) mv | mv == v = fst l
 
 proximoPresidente :: [(String, String)] -> [Integer] -> String
 proximoPresidente formulas votos = calcularProxPresi formulas votos (masVotos votos)
+
+
+              

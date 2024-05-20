@@ -27,7 +27,8 @@ maximoCambios (x:y:xs) | cantMinuscula x >= cantMinuscula y = maximoCambios (x:x
 -- (3)
 
 desplazar :: Char -> Int -> Char
-desplazar c n | (charANat c + n) < 0 = natAChar(25 - charANat c)
+desplazar c n | not (esMin c) = c
+              | (charANat c + n) < 0 = natAChar(25 - charANat c)
               | ((charANat c) + n) > 25 = natAChar(n - (25 - charANat c) - 1)
               | otherwise = natAChar (charANat c + n)
 

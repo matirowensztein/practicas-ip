@@ -1,33 +1,35 @@
-type Set a = [a]
+contieneNum :: Integer -> [Integer] -> Bool
+contieneNum y [] = False
+contieneNum y (x:xs) | x == y = True
+                     | otherwise = contieneNum y xs
 
-vacio :: Set Integer
-vacio = []
+perteneceLista :: Integer -> [[Integer]] -> [[Integer]]
+perteneceLista _ [] = []
+perteneceLista n (x:xs) | contieneNum n x = [x] ++ perteneceLista n xs
+                         | otherwise = [n:x] ++ perteneceLista n xs
 
-perteneceNum :: Integer -> Set Integer -> Bool
-perteneceNum _ [] = False
-perteneceNum n (x:xs) | n == x = True
-                      | otherwise = perteneceNum n xs
+revisarRepetidos :: [[Integer]] -> [[Integer]]
+revisarRepetidos [] = []
+revisarRepetidos (x:xs) | contiene x xs = revisarRepetidos xs
+                        | otherwise =  [x] ++ revisarRepetidos xs
 
-perteneceList :: Set Integer -> Set (Set Integer) -> Bool
-perteneceList _ [] = False
-perteneceList n (x:xs) | mismosElementos n x = True
-                       | otherwise = perteneceList n xs        
-
-agregar :: Integer -> Set Integer -> Set Integer
-agregar x c | perteneceNum x c = c
-            | otherwise = (x:c)
-             
-agregarATodos :: Integer -> Set (Set Integer) -> Set (Set Integer)
-agregarATodos _ [] = []
-agregarATodos n (x:xs) | perteneceList (agregar n x) (x:xs) = agregarATodos n xs
-                       | otherwise = [agregar n x] ++ agregarATodos n xs
-
+quitarTodos :: Integer -> [Integer] -> [Integer]
 quitarTodos _ [] = []
-quitarTodos y (x:t) | y == x = quitarTodos y t
-                    | y /= x = [x] ++ quitarTodos y t
+quitarTodos y (x:xs) | y == x = quitarTodos y xs
+                    | y /= x = [x] ++ quitarTodos y xs
 
-mismosElementos [] [] = True
-mismosElementos [] s = s == []
-mismosElementos t [] = t == []
-mismosElementos (x:t) (y:s) | (perteneceNum x s && perteneceNum y t) || x == y = mismosElementos (quitarTodos x s) (quitarTodos y t)
-                            | otherwise = False
+sonIguales :: [Integer] -> [Integer] -> Bool
+sonIguales [] [] = True
+sonIguales [] ys = False
+sonIguales xs [] = False
+sonIguales (x:xs) y | contieneNum x y = sonIguales xs (quitarTodos x y)
+                    | otherwise = False
+
+
+contiene :: [Integer] -> [[Integer]] -> Bool
+contiene y [] = False
+contiene y (x:xs) | sonIguales y x = True
+                  | otherwise = contiene y xs
+
+agregarATodos :: Integer -> [[Integer]] -> [[Integer]]
+agregarATodos n ls = revisarRepetidos (perteneceLista n ls)

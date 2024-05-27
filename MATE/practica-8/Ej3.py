@@ -1,8 +1,8 @@
 def reverso() -> None:
     archivo = open("./data/test.txt", "r")
     linea_actual = archivo.readline()
-    nuevo_contenido = ""
-    i = 0
+    nuevo_contenido: str = ""
+    i: int = 0
 
     while linea_actual != "":
         if linea_actual[-1] != "\n":

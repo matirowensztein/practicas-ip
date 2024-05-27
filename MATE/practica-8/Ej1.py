@@ -1,6 +1,6 @@
 def contar_lineas(nombre_archivo: str) -> int:
     archivo = open(nombre_archivo, "r")
-    res = 0
+    res: int = 0
     while archivo.readline() != "":
         res += 1
     return res
@@ -11,8 +11,8 @@ def existe_palabra(palabra: str, nombre_archivo: str) -> bool:
     archivo = open(nombre_archivo, "r")
     contenido = archivo.read()
     archivo.close()
-    palabra_actual = ""
-    res = False
+    palabra_actual: str = ""
+    res: bool = False
 
     for c in contenido:
         if c == " " or c == "\n":
@@ -34,8 +34,8 @@ def cantidad_apariciones(palabra: str, nombre_archivo: str) -> int:
     archivo = open(nombre_archivo, "r")
     contenido = archivo.read()
     archivo.close()
-    palabra_actual = ""
-    res = 0
+    palabra_actual:str = ""
+    res: int = 0
 
     for c in contenido:
         if c == " " or c == "\n":

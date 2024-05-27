@@ -1,9 +1,9 @@
 def clonar_sin_comentarios(nombre_archivo: str) -> None:
     archivo = open(nombre_archivo, "r")
     linea_actual = archivo.readline()
-    nuevo_contenido = ""
-    solo_espacios = True
-    i = 0
+    nuevo_contenido: str = ""
+    solo_espacios: bool = True
+    i: int = 0
 
     while linea_actual != "" and i < len(linea_actual):
         if linea_actual[i] == " " or linea_actual[i] == "\t":
@@ -20,7 +20,7 @@ def clonar_sin_comentarios(nombre_archivo: str) -> None:
             i += 1
         
     archivo.close()
-    nuevo_nombre = ""
+    nuevo_nombre: str = ""
     i = 0
     while i < len(nombre_archivo):
         if nombre_archivo[i] == "." and nombre_archivo[i+1] != "/":

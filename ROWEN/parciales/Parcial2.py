@@ -43,6 +43,8 @@ def acomodar(s: list[str]) -> list[str]:
 
     return lista_completa
 
+print(acomodar(["LLA", "UP", "LLA", "LLA", "UP"]))
+
 """
 2) Posición umbral [2 puntos]
 Durante una noche en un restaurant pasan varios grupos de diversa cantidad de

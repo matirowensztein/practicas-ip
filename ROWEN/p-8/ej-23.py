@@ -26,6 +26,7 @@ def calcular_valor(inventario: dict) -> float:
 agregar_producto(inventario, "Camisa", 20.0, 50)
 agregar_producto(inventario, "Pantalon", 30.0, 30)
 actualizar_stock(inventario, "Camisa", 10)
+print(inventario)
 valor_total = calcular_valor(inventario)
 print(inventario)
 print(f"Valor total del inventario: {valor_total}")

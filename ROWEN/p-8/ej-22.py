@@ -6,9 +6,7 @@ historiales = {"Usuario1" : Pila(), "Usuario2" : Pila()}
 
 def visitar_sitio(historiales: dict[str, Pila[str]], usuario: str, sitio: str):
     historiales[usuario].put(sitio)
-    
-    return historiales
-    
+        
 visitar_sitio(historiales, "Usuario1", "https://chatgpt.com/")
 visitar_sitio(historiales, "Usuario1", "https://instagram.com/")
 
@@ -25,4 +23,4 @@ def navegar_atras(historiales: dict[str, Pila[str]], usuario:str):
     return historiales
 
 navegar_atras(historiales, "Usuario1")
-print(historiales["Usuario1"].queue)
+# print(historiales["Usuario1"].queue)

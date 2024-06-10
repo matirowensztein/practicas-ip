@@ -10,21 +10,20 @@
 #   e = 0
 # se debería devolver res=7
 
-def ultima_aparicion (s: list[int], e: int):
-    cont: int = 0
+def ultima_aparicion (s: list[int], e: int) -> int:
     ult_pos: int = 0
-
-    for i in s:
-        if i != e:
-            cont += 1
-        else:
-            ult_pos = cont
-            cont += 1
+    cant: int = 0
     
+    for n in s:
+        if n == e:
+            ult_pos = cant
+            
+        cant += 1
+            
     return ult_pos
-
-
-print(ultima_aparicion([1,2,3,4,5,4,5],4))
+    
+    
+print(ultima_aparicion([-1,4,0,4,100,0,100,0,-1,-1],0))
 
 # Ejercicio 2
 #
@@ -39,29 +38,18 @@ print(ultima_aparicion([1,2,3,4,5,4,5],4))
 #   t = [0,100,5,0,100,-1,5]
 # se debería devolver res = [3,4,5] ó res = [3,5,4] ó res = [4,3,5] ó res = [4,5,3] 
 # ó res = [5,3,4] ó res = [5,4,3]
-
-def pertenece(l, e):
-    condicion: bool = False
-
-    for i in l:
-        if e == i:
-            condicion = True
-
-    return condicion
     
-print(pertenece([1,2,3,4,5,4,5],7))
-
 def elementos_exclusivos (s: list[int], t: list[int]):
     elems_unic: list = []
 
     for i in s:
-        if not pertenece(t,i) and not pertenece(elems_unic,i):
+        if i not in t and i not in elems_unic:
             elems_unic.append(i)
-
+            
     for k in t:
-        if not pertenece(s,k) and not pertenece(elems_unic,k): 
+        if k not in s and k not in elems_unic:
             elems_unic.append(k)
-
+            
     return elems_unic
 
 print(elementos_exclusivos([-1,4,0,4,3,0,100,0,-1,-1],[0,100,5,0,100,-1,5]))
@@ -86,14 +74,15 @@ print(elementos_exclusivos([-1,4,0,4,3,0,100,0,-1,-1],[0,100,5,0,100,-1,5]))
 
 def contar_traducciones_iguales (ing: dict[(str,str)], ale: dict[(str,str)]):
     cont: int = 0
-    for c in ing.keys():
-        if pertenece(ale, c):
-            if ing[c] == ale[c]:
+    
+    for c,v in ing.items():
+        if c in ale.keys():
+            if v == ale[c]:
                 cont += 1
-
+                
     return cont 
 
-print(contar_traducciones_iguales({"Mano": "Hand", "Pie": "Foot", "Dedo": "Finger", "Cara": "Gesicht"},{"Pie": "Foot", "Dedo": "Finger", "Mano": "Hand"}))
+print(contar_traducciones_iguales({"Mano": "Hand", "Pie": "Fuss", "Dedo": "Finger", "Cara": "Gesicht"},{"Pie": "Foot", "Dedo": "Finger", "Mano": "Hand"}))
 
 # Ejercicio 4
 #
@@ -115,14 +104,11 @@ def convertir_a_diccionario (s: list[int]):
     diccionario:dict = {}
 
     for i in s:
-        if pertenece(diccionario.keys(),i):
-            cont_apar: int = 0
-            cont_apar = diccionario[i] 
-            diccionario[i] = cont_apar + 1
-            cont_apar = 0
-        else:
+        if not i in diccionario.keys():
             diccionario[i] = 1
+        else:
+            diccionario[i] += 1
 
     return diccionario
 
-print(convertir_a_diccionario([-1,0,4,100,100,-1,-1]))
+print(convertir_a_diccionario([-1,0,4,100,100,-1,-1, 1000]))
